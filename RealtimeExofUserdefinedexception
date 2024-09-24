@@ -1,0 +1,90 @@
+package com.userdefine;
+
+public class InsufficientFundsException extends Exception{
+	
+	InsufficientFundsException(String str){
+		super(str);
+	}
+
+}
+
+
+
+package com.userdefine;
+
+public class BankAccount {
+	private double accountNo;
+	private double balance;
+	
+	
+	BankAccount(double accountNo,double balance){
+		this.accountNo = accountNo;
+		this.balance = balance;
+	}
+	
+	public void deposit(int amount) {
+		if(amount>0) {
+			balance = balance + amount;
+			
+			System.out.println("Deposited = "+amount);
+			
+		
+		}else {
+			System.out.println("Plz Deposit Positive Amount");
+		}
+	}
+	
+	public void Withdrow(int amount)throws InsufficientFundsException {
+		
+		if(amount > balance) {
+			throw new InsufficientFundsException("Insufficient Funds Available balance is ="+balance);
+		}else {
+			balance = balance-amount;
+			
+			System.out.println("Withdrow = "+amount);
+			
+			System.out.println("Current Balance = "+balance);
+		 
+		}
+		
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+
+}
+
+
+
+package com.userdefine;
+
+public class Main {
+	public static void main(String[]args) {
+		
+		BankAccount account = new BankAccount(1234567,500);
+		
+		
+		
+		account.deposit(200);
+		System.out.println("Current Balance = "+account.getBalance());
+		
+		try {
+			account.Withdrow(900);
+			
+		}catch(InsufficientFundsException e) {
+			e.printStackTrace();
+			
+			System.out.println("Error : Insufficient Fund");
+		}
+		try {
+			account.Withdrow(100);
+			
+		}catch(InsufficientFundsException e) {
+			//e.printStackTrace();
+			
+			System.out.println("Insufficient Fund");
+		}
+	}
+
+}
