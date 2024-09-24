@@ -1,0 +1,21 @@
+//Index out of bounds Exception
+
+
+
+public class ArrayIndex {
+	public static void main(String[] args) {
+		
+		int arr[] = {1,2,3,4,5,6,7,8};
+		
+		
+		try {
+			System.out.println(arr[9]);
+		}catch(ArrayIndexOutOfBoundsException e){
+			
+			System.out.println("Exception Occured "+e.getMessage());
+			
+		}
+		
+	}
+
+}
