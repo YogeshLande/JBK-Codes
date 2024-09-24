@@ -1,0 +1,47 @@
+//User Defined Exception
+
+package com.userdefine;
+
+import java.util.Scanner;
+
+
+ class Lowage extends Exception {
+	
+	public Lowage() {
+		super();
+	}
+
+}
+
+
+public class main1 {
+	public void validcheck(int age) {
+
+		if (age < 18) {
+			
+			try {
+				Lowage e = new Lowage();
+
+				//throw e;
+				
+				throw new Lowage();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Your Age is to low");
+			}
+		}else {
+			System.out.println("Valid Age");
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n=sc.nextInt();
+
+		main1 a = new main1();
+		a.validcheck(n);
+
+	}
+
+}
