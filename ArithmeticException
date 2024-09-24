@@ -1,0 +1,34 @@
+//Arithmetic Exception
+
+
+package com.Exception;
+
+import java.util.*;
+public class Arithmmetic {
+	
+
+		
+	
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Numbers ");
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		
+		
+		
+		try {
+		
+			int c = a/b;
+			
+			System.out.println("Result = "+c);
+			
+	}catch(ArithmeticException e) {
+		System.out.println("Arithmetic Exception Occured"+e.getMessage());
+	}
+	
+		
+
+}
+}
