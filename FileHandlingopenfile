@@ -1,0 +1,59 @@
+package com.filehandling;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+
+public class Example {
+	
+	FileInputStream fi = null;
+	
+	String path = "C:\\Users\\Admin\\Pictures\\FileHandling\\db.txt";
+	
+	
+	public void readyFile() {
+		
+	
+		
+		try {
+			fi = new FileInputStream(path);
+			
+			System.out.println("File Open Sussfully");
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+			System.out.println("File Not Found Exception");
+			
+		}finally{
+			if(fi!=null) {
+				try {
+				fi.close();
+				System.out.println("File Closed suscessfuly");
+			}catch(IOException e) {
+				System.out.println(" Error : During File CLosing ");
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	}
+}	
+
+
+//main class
+
+package com.filehandling;
+
+public class Test {
+	public static void main(String[]args) {
+		Example ex = new Example();
+		
+		ex.readyFile();
+	}
+
+}
+
+
+
